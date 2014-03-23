@@ -6,7 +6,7 @@
 
 " Plugin Commands
 com! -nargs=+  -bar   Plugin
-\ call vundle#config#bundle(<args>)
+\ call vundle#config#plugin(<args>)
 
 com! -nargs=? -bang -complete=custom,vundle#scripts#complete PluginInstall
 \ call vundle#installer#new('!' == '<bang>', <q-args>)

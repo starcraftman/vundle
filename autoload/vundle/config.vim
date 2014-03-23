@@ -6,6 +6,19 @@ func! vundle#config#bundle(arg, ...)
   return bundle
 endf
 
+func! vundle#config#plugin(arg, ...)
+  " If arguments aren't passed in as dict, pack them
+  if a:0 > 0 && type(a:1) != type({})
+    let opts = s:pack_dict(a:000)
+  else
+    let opts = a:000
+  endif
+
+  let bundle = vundle#config#init_bundle(a:arg, opts)
+  call add(g:bundles, bundle)
+  return bundle
+endf
+
 func! vundle#config#init()
   if !exists('g:bundles') | let g:bundles = [] | endif
   call s:rtp_rm_a()
@@ -31,6 +44,22 @@ func! vundle#config#init_bundle(name, opts)
   let b = extend(opts, copy(s:bundle))
   let b.rtpath = s:rtpath(opts)
   return b
+endf
+
+func! s:pack_dict(...)
+  let dict = {}
+  let n_list = []
+
+  for ele in a:000
+    let words = split(ele, '=')
+    if len(words) > 1
+      let dict[words[0]] = words[1]
+    else
+      let n_list = insert(n_list, ele)
+    endif
+  endfor
+
+  return insert(n_list, dict)
 endf
 
 func! s:parse_options(opts)
