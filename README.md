@@ -1,4 +1,4 @@
-## [Help Maintain Vundle](https://github.com/gmarik/Vundle.vim/issues/241)
+## [Help Maintain Vundle](https://github.com/gmarik/Vundle.vim/issues/383)
 
 ## About
 
@@ -30,6 +30,7 @@
    Curl is required for search.
 
    If you are using Windows, go directly to [Windows setup]. If you run into any issues, please consult the [FAQ].
+   Also see the [Tips] page for some additional information.
 
 2. Set up [Vundle]:
 
@@ -46,30 +47,26 @@
    " set the runtime path to include Vundle and initialize
    set rtp+=~/.vim/bundle/vundle/
    call vundle#rc()
-   " alternatively, pass a path where Vundle should install plugins
-   "let path = '~/some/path/here'
-   "call vundle#rc(path)
+   " alternatively, pass where Vundle should install plugins
+   "call vundle#rc('~/some/plugin/directory')
 
    " let Vundle manage Vundle, required
    Plugin 'gmarik/vundle'
 
    " The following are examples of different formats supported.
-   " Keep Plugin commands between here and filetype plugin indent on.
-   " scripts on GitHub repos
+   " plugins on GitHub repos
    Plugin 'tpope/vim-fugitive'
-   Plugin 'Lokaltog/vim-easymotion'
-   Plugin 'tpope/vim-rails.git'
+   " plugins from http://vim-scripts.org/vim/scripts.html
+   Plugin 'L9'
+   " plugins not on GitHub
+   Plugin 'git://git.wincent.com/command-t.git'
    " The sparkup vim script is in a subdirectory of this repo called vim.
    " Pass the path to set the runtimepath properly.
    Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-   " scripts from http://vim-scripts.org/vim/scripts.html
-   Plugin 'L9'
-   Plugin 'FuzzyFinder'
-   " scripts not on GitHub
-   Plugin 'git://git.wincent.com/command-t.git'
    " git repos on your local machine (i.e. when working on your own plugin)
    Plugin 'file:///home/gmarik/path/to/plugin'
-   " ...
+   " Use to avoid plugin name collisions, clones to myL9 instead of L9.
+   Plugin 'forked/L9', {'name': 'myL9'}
 
    filetype plugin indent on     " required
    " To ignore plugin indent changes, instead use:
@@ -82,7 +79,6 @@
    " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
    "
    " see :h vundle for more details or wiki for FAQ
-   " NOTE: comments after Plugin commands are not allowed.
    " Put your stuff after this line
    ```
 
@@ -135,6 +131,7 @@ see [Vundle contributors](https://github.com/gmarik/vundle/graphs/contributors)
 [Vundle]:http://github.com/gmarik/vundle
 [Windows setup]:https://github.com/gmarik/vundle/wiki/Vundle-for-Windows
 [FAQ]:https://github.com/gmarik/vundle/wiki
+[Tips]:https://github.com/gmarik/Vundle.vim/wiki/Tips-and-Tricks
 [Vim]:http://www.vim.org
 [Git]:http://git-scm.com
 [`git clone`]:http://gitref.org/creating/#clone
