@@ -20,7 +20,7 @@
 
 [Vundle] is undergoing an [interface change], please stay up to date to get latest changes.
 
-![Vundle-installer](http://i.imgur.com/RSFer67.png)
+![Vundle-installer](http://i.imgur.com/Rueh7Cc.png)
 
 ## Quick Start
 
