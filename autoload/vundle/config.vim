@@ -182,9 +182,10 @@ endf
 " runtimepath.
 " ---------------------------------------------------------------------------
 func! s:rtp_rm_a()
+  let suffix = (has('win32') || has('win64')) && &shellcmdflag =~ '/' ? '\' : '/'
   let paths = map(copy(g:bundles), 'v:val.rtpath')
   let prepends = join(paths, ',')
-  let appends = join(paths, '/after,').'/after'
+  let appends = join(paths, suffix) . suffix
   exec 'set rtp-='.fnameescape(prepends)
   exec 'set rtp-='.fnameescape(appends)
 endf
@@ -195,9 +196,10 @@ endf
 " runtimepath.
 " ---------------------------------------------------------------------------
 func! s:rtp_add_a()
+  let suffix = (has('win32') || has('win64')) && &shellcmdflag =~ '/' ? '\' : '/'
   let paths = map(copy(g:bundles), 'v:val.rtpath')
   let prepends = join(paths, ',')
-  let appends = join(paths, '/after,').'/after'
+  let appends = join(paths, suffix) . suffix
   exec 'set rtp^='.fnameescape(prepends)
   exec 'set rtp+='.fnameescape(appends)
 endf
